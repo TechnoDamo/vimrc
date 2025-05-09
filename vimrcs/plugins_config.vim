@@ -15,10 +15,65 @@ set packpath+=~/.vim_runtime
 " => Load pathogen paths
 """"""""""""""""""""""""""""""
 let s:vim_runtime = expand('<sfile>:p:h')."/.."
+
+" Load vim-go first
+set runtimepath+=~/.vim_runtime/my_plugins/vim-go
+runtime! plugin/go.vim
+
+" Then load other plugins
 call pathogen#infect(s:vim_runtime.'/sources_forked/{}')
 call pathogen#infect(s:vim_runtime.'/sources_non_forked/{}')
 call pathogen#infect(s:vim_runtime.'/my_plugins/{}')
 call pathogen#helptags()
+
+" Enable filetype detection
+filetype plugin indent on
+syntax on
+
+
+""""""""""""""""""""""""""""""
+" => vim-go Enhanced Highlighting
+""""""""""""""""""""""""""""""
+" Basic vim-go settings
+let g:go_version_warning = 0
+let g:go_bin_path = expand("$HOME/go/bin")
+
+" Syntax highlighting
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_generate_tags = 1
+let g:go_highlight_string_spellcheck = 1
+let g:go_highlight_format_strings = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_diagnostic_errors = 1
+let g:go_highlight_diagnostic_warnings = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_interfaces = 1
+
+" Highlight package names and their methods
+let g:go_highlight_package_names = 1
+let g:go_highlight_package_methods = 1
+
+" Custom syntax highlighting for HTTP
+autocmd FileType go syntax keyword goHttpPackage net/http
+autocmd FileType go syntax keyword goHttpMethod Get Post Put Delete Patch Head Options
+autocmd FileType go syntax keyword goHttpStatus OK NotFound BadRequest InternalServerError
+autocmd FileType go syntax keyword goHttpType Request Response Handler ServeMux
+
+" Auto-formatting
+let g:go_fmt_command = "goimports"
+let g:go_fmt_autosave = 1
 
 
 """"""""""""""""""""""""""""""
@@ -91,7 +146,7 @@ set grepprg=/bin/grep\ -nH
 let g:NERDTreeWinPos = "right"
 let NERDTreeShowHidden=0
 let NERDTreeIgnore = ['\.pyc$', '__pycache__']
-let g:NERDTreeWinSize=35
+let g:NERDTreeWinSize=25
 map <leader>nn :NERDTreeToggle<cr>
 map <leader>nb :NERDTreeFromBookmark<Space>
 map <leader>nf :NERDTreeFind<cr>
@@ -193,3 +248,21 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " Copy the link to the line of a Git repository to the clipboard
 nnoremap <leader>v :.GBrowse!<CR>
 xnoremap <leader>v :GBrowse!<CR>
+
+
+""""""""""""""""""""""""""""""
+" => Window resizing
+""""""""""""""""""""""""""""""
+" Height resizing with arrow keys
+nnoremap <C-Up> :resize +5<CR>
+nnoremap <C-Down> :resize -5<CR>
+
+" Width resizing with arrow keys
+nnoremap <C-Left> :vertical resize -5<CR>
+nnoremap <C-Right> :vertical resize +5<CR>
+
+" Window navigation
+nnoremap <C-w>h <C-w>h
+nnoremap <C-w>j <C-w>j
+nnoremap <C-w>k <C-w>k
+nnoremap <C-w>l <C-w>l

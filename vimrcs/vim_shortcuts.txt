@@ -1,0 +1,67 @@
+VIM SHORTCUTS CHEAT SHEET
+=======================
+
+WINDOW MANAGEMENT
+----------------
+Navigation:
+    Ctrl-w h    - Move to window on the left
+    Ctrl-w j    - Move to window below
+    Ctrl-w k    - Move to window above
+    Ctrl-w l    - Move to window on the right
+
+Resizing:
+    Ctrl-w +    - Increase window height
+    Ctrl-w -    - Decrease window height
+    Ctrl-w >    - Increase window width
+    Ctrl-w <    - Decrease window width
+
+Moving Windows:
+    Ctrl-w H    - Move window to far left
+    Ctrl-w J    - Move window to bottom
+    Ctrl-w K    - Move window to top
+    Ctrl-w L    - Move window to far right
+
+NERDTREE
+--------
+    ,nn         - Toggle NERDTree
+    ,nb         - Open NERDTree from bookmark
+    ,nf         - Find current file in NERDTree
+
+TERMINAL
+--------
+    ,t          - Open terminal in new window
+    ,T          - Open terminal in new tab
+    Esc         - Exit terminal mode
+    Ctrl-w      - Window navigation in terminal mode
+
+BUFFER MANAGEMENT
+----------------
+    ,o          - Open buffer explorer
+    ,l          - Go to next buffer
+    ,h          - Go to previous buffer
+    ,bd         - Close current buffer
+    ,ba         - Close all buffers
+
+TAB MANAGEMENT
+-------------
+    ,tn         - New tab
+    ,to         - Close all other tabs
+    ,tc         - Close current tab
+    ,tm         - Move tab
+    ,tl         - Toggle between current and last tab
+
+SEARCH AND REPLACE
+-----------------
+    ,f          - Open MRU (Most Recently Used) files
+    ,g          - Search with Ack
+    ,cc         - Show search results in cope
+    ,n          - Go to next search result
+    ,p          - Go to previous search result
+
+OTHER USEFUL COMMANDS
+--------------------
+    ,w          - Save file
+    ,z          - Toggle Goyo (distraction-free mode)
+    ,d          - Toggle Git diff
+    ,v          - Copy Git link to clipboard
+    ,a          - Go to next ALE error/warning 

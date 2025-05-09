@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+# Check if the shortcuts file exists
+if [[ ! -f ~/.vim_runtime/vimrcs/vim_shortcuts.txt ]]; then
+    echo "Error: Vim shortcuts file not found at ~/.vim_runtime/vimrcs/vim_shortcuts.txt"
+    exit 1
+fi
+
+# Open the file in vim
+vim ~/.vim_runtime/vimrcs/vim_shortcuts.txt 
